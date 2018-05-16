@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import assign from './utils/assign';
+const isOpening = (s1, s2) => !s1.isVisible && s2.isVisible;
+const isClosing = (s1, s2) => s1.isVisible && !s2.isVisible;
 
 export default class SkyLightStateless extends React.Component {
 
@@ -13,7 +15,28 @@ export default class SkyLightStateless extends React.Component {
     document.removeEventListener("keydown", this._handlerEsc.bind(this));
   }
 
-  _handlerEsc(evt) {
+  componentWillUpdate(nextProps, nextState) {
+      if (isOpening(this.state, nextState) && this.props.beforeOpen) {
+          this.props.beforeOpen();
+      }
+
+      if (isClosing(this.state, nextState) && this.props.beforeClose) {
+          this.props.beforeClose();
+      }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+      if (isOpening(prevState, this.state) && this.props.afterOpen) {
+          this.props.afterOpen();
+      }
+
+      if (isClosing(prevState, this.state) && this.props.afterClose) {
+          this.props.afterClose();
+      }
+  }
+
+
+    _handlerEsc(evt) {
     var isEscape = false;
     if ("key" in evt) {
       isEscape = (evt.key == "Escape" || evt.key == "Esc");
@@ -115,6 +138,10 @@ SkyLightStateless.sharedPropTypes = {
 SkyLightStateless.propTypes = {
   ...SkyLightStateless.sharedPropTypes,
   isVisible: PropTypes.bool,
+  afterClose: PropTypes.func,
+  afterOpen: PropTypes.func,
+  beforeClose: PropTypes.func,
+  beforeOpen: PropTypes.func,
 };
 
 SkyLightStateless.defaultProps = {

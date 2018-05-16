@@ -1,6 +1,6 @@
 {
-  "name": "react-skylight",
-  "version": "0.5.1",
+  "name": "@reglendo/react-skylight",
+  "version": "1.0.3",
   "description": "A react component for modals and dialogs.",
   "main": "lib/index.js",
   "scripts": {
@@ -10,11 +10,6 @@
     "karma": "karma start",
     "test": "npm-run-all karma build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:marcio/react-skylight.git"
-  },
-  "bugs": "https://github.com/marcio/react-skylight/issues",
   "keywords": [
     "React",
     "Modal",
@@ -28,10 +23,7 @@
   ],
   "author": "Marcio Gasparotto",
   "contributors": [
-    {
-      "name": "Chris Trevino",
-      "email": "darthtrevino@gmail.com"
-    }
+    "Chris Trevino <darthtrevino@gmail.com>"
   ],
   "license": "MIT",
   "peerDependencies": {
@@ -76,5 +68,17 @@
   },
   "dependencies": {
     "prop-types": "^15.5.10"
-  }
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reglendo/react-skylight.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Reglendo/react-skylight/issues"
+  },
+  "homepage": "https://github.com/Reglendo/react-skylight#readme"
 }
