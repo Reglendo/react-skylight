@@ -1,6 +1,6 @@
 {
   "name": "@reglendo/react-skylight",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A react component for modals and dialogs.",
   "main": "lib/index.js",
   "scripts": {

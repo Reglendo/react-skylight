@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SkylightStateless from './skylightstateless';
 
-const isOpening = (s1, s2) => !s1.isVisible && s2.isVisible;
-const isClosing = (s1, s2) => s1.isVisible && !s2.isVisible;
+const isOpening = (s1, s2) => s1 && s2 && !s1.isVisible && s2.isVisible;
+const isClosing = (s1, s2) => s1 && s2 && s1.isVisible && !s2.isVisible;
 
 export default class SkyLight extends React.Component {
 
